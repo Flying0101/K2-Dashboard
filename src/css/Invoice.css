@@ -1,0 +1,45 @@
+.invoice-section {
+
+    color: white;
+    padding: 2em 0;
+    position: relative;
+    width: 100%;
+}
+
+.invoice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+
+
+}
+
+.i-grid-div {}
+
+.i-grid-div2 {
+    box-shadow: 0 0 3px #ccc;
+    padding: 10px;
+    border: 3px solid white;
+
+}
+
+*{ 
+    border: 1px solid red;
+}
+
+
+@media (max-width: 800px) {
+
+   
+
+    .invoice-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 30px;
+    
+    
+    }
+    
+
+}

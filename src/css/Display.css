@@ -1,0 +1,88 @@
+.display-section {
+    color: white;
+    padding: 7em 0 1em 0;
+}
+
+
+
+.revenue-display {
+
+    margin: 0 auto;
+}
+
+
+.revenue-h {
+    text-align: center;
+    padding: 15px 10px;
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    box-shadow: 0 0 3px #ccc;
+
+
+}
+
+
+.display-grid {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row: 1fr;
+
+
+}
+
+.display-grid-div {
+    box-shadow: 0 0 15px rgb(0, 0, 0);
+    border: 3px solid white;
+    min-height: 200px;
+
+}
+
+.d-g-h {
+    padding: 5px 0 5px 10px;
+    font-size: clamp(1rem, 5vw, 1.5rem);
+    color: rgba(0, 255, 213, 0.671);
+    font-weight: bold;
+}
+
+
+.d-g-sc {
+    padding: 10px;
+}
+
+.d-g-sd {
+    padding: 10px 7px;
+    box-shadow: 0 0 3px #ccc;
+
+}
+
+.scroll-area {
+    position: relative;
+    width: auto;
+    height: 200px;
+}
+
+
+.d-g-icon{ 
+    color: red;
+    margin-top: 3px;
+    margin-left: 5px;
+    
+}
+
+
+@media (max-width: 600px) {
+
+    .display-grid {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row: 1fr 1fr 1fr;
+
+
+    }
+
+
+
+}
