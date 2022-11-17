@@ -8,7 +8,6 @@ import { FaRegTimesCircle } from "react-icons/fa";
 
 import { ProjectContext } from '../contexts/ProjectContext';
 import { useContext } from 'react';
-import { time } from 'console';
 
 
 
@@ -48,11 +47,20 @@ const Display: FC = () => {
   })
   console.log(thirtyday);
 
-
   //time end
 
-  // thirtyday.push(convertTime);
 
+
+  // delete one specific task.
+  const DeleteOneTask = (id: string) => {
+    context?.DelTask(id);
+  }
+
+
+  //delete on timelog
+  const DeleteOneTimelog = (id: string) => {
+    context?.DelTimelog(id);
+  }
 
 
   return (
@@ -83,8 +91,8 @@ const Display: FC = () => {
           <p className="d-g-h">Current Tasks</p>
           <div className="d-g-sc">
             <ScrollToBottom className="scroll-area">
-              {context?.tasks?.map((pro) => (
-                <p className="d-g-sd">Task: {pro.title} |<FaRegTimesCircle className="d-g-icon" /></p>
+              {context?.tasks?.map((task) => (
+                <p className="d-g-sd">Task: {task.title} |<FaRegTimesCircle className="d-g-icon" onClick={() => DeleteOneTask(task.id)} /></p>
 
               ))}
             </ScrollToBottom>
@@ -98,7 +106,7 @@ const Display: FC = () => {
           <div className="d-g-sc">
             <ScrollToBottom className="scroll-area">
               {thirtyday.map((timel: any) => (
-                <p className="d-g-sd">Timelog: {timel.title} | {timel.time} | {timel.date} <FaRegTimesCircle className="d-g-icon" /></p>
+                <p className="d-g-sd">Timelog: {timel.title} | {timel.time} | {timel.date} <FaRegTimesCircle className="d-g-icon" onClick={() => DeleteOneTimelog(timel.id)} /></p>
               ))}
             </ScrollToBottom>
 
@@ -110,7 +118,7 @@ const Display: FC = () => {
           <div className="d-g-sc">
             <ScrollToBottom className="scroll-area">
               {context?.timelogs?.map((timel: any) => (
-                <p className="d-g-sd">Timelog: {timel.title} | {timel.time} | {timel.date} <FaRegTimesCircle className="d-g-icon" /></p>
+                <p className="d-g-sd">Timelog: {timel.title} | {timel.time} | {timel.date} <FaRegTimesCircle className="d-g-icon" onClick={() => DeleteOneTimelog(timel.id)} /></p>
               ))}
             </ScrollToBottom>
 
