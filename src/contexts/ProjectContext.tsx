@@ -10,6 +10,7 @@ import App from '../App';
 interface ProjectContextInterface {
   projects: any[]
   tasks: any[]
+  timelogs: any[]
 }
 
 interface ProjectsProps {
@@ -25,6 +26,10 @@ const Projects = ({ children }: ProjectsProps) => {
   const [projects, setProjects] = useState<{ name: string; color: string; id: string; }[]>([]);
 
   const [tasks, setTasks] = useState<{ title: string; color: string; projid: string; id: string; }[]>([]);
+
+  const [timelogs, setTimelogs] = useState<{ id: string; taskid: string; title: string; date: string; time: string; }[]>([]);
+
+
   //get the projects
   function getAllProjects() {
 
@@ -51,17 +56,41 @@ const Projects = ({ children }: ProjectsProps) => {
     console.log("req-task successful");
 
   }
+
+
+
+
+  // get the timelogs
+  function getAllTimelogs() {
+
+    axios.get("http://localhost:3004/timelogs")
+      .then((res) => {
+        setTimelogs(res.data)
+      })
+      .catch((error) => console.log(error));
+
+    console.log("req-timelogs successful");
+
+  }
+
+
+
+
+
+
+
   // load them into site when starting app.
   useEffect(() => {
 
     getAllProjects();
     getAllTasks();
-
+    getAllTimelogs();
+    
   }, [])
 
 
   return (
-    <ProjectContext.Provider value={{ projects, tasks }}>
+    <ProjectContext.Provider value={{ projects, tasks, timelogs }}>
       {children}
     </ProjectContext.Provider>
   );
