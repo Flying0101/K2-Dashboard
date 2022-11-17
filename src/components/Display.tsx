@@ -25,35 +25,34 @@ const Display: FC = () => {
     console.log("context is null!")
   }
 
- // time start
+  // time start
   let date = new Date(new Date().setDate(new Date().getDate() - 30));
   let today = new Date();
   console.log(date.getTime());
   console.log(today.getTime());
 
-  const thirtyday:any = []; 
+  const thirtyday: any = [];
 
-  context?.timelogs?.forEach((d)=>{
+  context?.timelogs?.forEach((d) => {
     const hej = d.date;
     const dateSplit = hej.split("/")
     const convertTime = new Date(`${dateSplit[1]}/${dateSplit[0]}/${dateSplit[2]}`)
-    const numTime = convertTime.getTime(); 
-     
-    if(numTime > date.getTime()){
+    const numTime = convertTime.getTime();
+
+    if (numTime > date.getTime()) {
       console.log(numTime)
-      const Datetostring = new Date(numTime);
-      thirtyday.push(Datetostring.toLocaleDateString('en-US'));
-    }else{  
+      thirtyday.push(d);
+    } else {
       console.log("it didnt work");
     }
   })
   console.log(thirtyday);
- 
-  
-//time end
 
-// thirtyday.push(convertTime);
- 
+
+  //time end
+
+  // thirtyday.push(convertTime);
+
 
 
   return (
@@ -95,10 +94,22 @@ const Display: FC = () => {
         </div>
 
         <div className="display-grid-div">
-          <p className="d-g-h">Timelogs 30day period</p>
+          <p className="d-g-h">Timelogs last 30days</p>
           <div className="d-g-sc">
             <ScrollToBottom className="scroll-area">
-              {context?.timelogs?.map((timel) => (
+              {thirtyday.map((timel: any) => (
+                <p className="d-g-sd">Timelog: {timel.title} | {timel.time} | {timel.date} <FaRegTimesCircle className="d-g-icon" /></p>
+              ))}
+            </ScrollToBottom>
+
+          </div>
+
+        </div>
+        <div className="display-grid-div">
+          <p className="d-g-h">All timelogs</p>
+          <div className="d-g-sc">
+            <ScrollToBottom className="scroll-area">
+              {context?.timelogs?.map((timel: any) => (
                 <p className="d-g-sd">Timelog: {timel.title} | {timel.time} | {timel.date} <FaRegTimesCircle className="d-g-icon" /></p>
               ))}
             </ScrollToBottom>

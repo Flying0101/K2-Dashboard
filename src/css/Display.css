@@ -26,7 +26,7 @@
 .display-grid {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-row: 1fr;
 
 
@@ -72,13 +72,13 @@
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
 
     .display-grid {
         margin-top: 20px;
         display: grid;
         grid-template-columns: 1fr;
-        grid-row: 1fr 1fr 1fr;
+        grid-row: 1fr 1fr 1fr 1fr;
 
 
     }
