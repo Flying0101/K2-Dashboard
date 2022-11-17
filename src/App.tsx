@@ -5,13 +5,17 @@ import './css/Global.css';
 import Nav from './components/nav';
 import Display from './components/Display';
 import Invoice from './components/Invoice';
+import Projects from './contexts/ProjectContext';
+
 
 const App: FC = () => {
   return (
     <div className="App">
-      <Nav />
-      <Display />
-      <Invoice />
+      <Projects>
+        <Nav /> 
+        <Display />
+        <Invoice />
+      </Projects>
     </div>
   );
 }

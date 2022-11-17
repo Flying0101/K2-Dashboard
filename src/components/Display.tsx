@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
 
 import '../css/Display.css';
@@ -6,13 +6,21 @@ import '../css/Display.css';
 
 import { FaRegTimesCircle } from "react-icons/fa";
 
+import { ProjectContext } from '../contexts/ProjectContext';
+import { useContext } from 'react';
 
 
-// className=""
 
 const Display: FC = () => {
 
+  const context = useContext(ProjectContext)
 
+
+  if (context !== null) {
+    console.log(context.projects);
+  } else {
+    console.log("context is null!")
+  }
 
   return (
     <section className="display-section">
@@ -27,7 +35,11 @@ const Display: FC = () => {
           <p className="d-g-h">Current Projects</p>
           <div className="d-g-sc">
             <ScrollToBottom className="scroll-area">
-              <p className="d-g-sd">Project: Lamborghini | 2 active tasks <FaRegTimesCircle className="d-g-icon" /></p>
+              {context?.projects?.map((pro) => (
+                <p className="d-g-sd">Project: {pro.name} | x active tasks <FaRegTimesCircle className="d-g-icon" /></p>
+
+              ))}
+
 
             </ScrollToBottom>
           </div>
@@ -38,12 +50,14 @@ const Display: FC = () => {
           <p className="d-g-h">Current Tasks</p>
           <div className="d-g-sc">
             <ScrollToBottom className="scroll-area">
+              {context?.tasks?.map((pro) => (
+                <p className="d-g-sd">Task: {pro.title} |<FaRegTimesCircle className="d-g-icon" /></p>
 
-              <p className="d-g-sd">Task: Aventador <FaRegTimesCircle className="d-g-icon" /></p>
+              ))}
             </ScrollToBottom>
 
           </div>
-
+ 
         </div>
 
         <div className="display-grid-div">
