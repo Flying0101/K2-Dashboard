@@ -15,6 +15,7 @@ interface ProjectContextInterface {
   DelTimelog: any
   DelProject: any
   AddNewInvoice: any
+  invoices: any[]
 }
 
 interface ProjectsProps {
@@ -32,6 +33,9 @@ const Projects = ({ children }: ProjectsProps) => {
   const [tasks, setTasks] = useState<{ title: string; color: string; projid: string; id: string; }[]>([]);
 
   const [timelogs, setTimelogs] = useState<{ id: string; taskid: string; title: string; date: string; time: string; }[]>([]);
+
+
+  const [invoices, setInvoices] = useState<{ id: string, customer_name: string, project: string, status: string, amount: number, created_date: string, due_Date: string }[]>([]);
 
 
   //get the projects
@@ -80,6 +84,23 @@ const Projects = ({ children }: ProjectsProps) => {
 
 
 
+  // get the invoices
+  function getAllInvoices() {
+
+    axios.get("http://localhost:3004/invoices")
+      .then((res) => {
+        setInvoices(res.data)
+      })
+      .catch((error) => console.log(error));
+
+    console.log("req-timelogs successful");
+
+  }
+
+
+
+
+
 
 
 
@@ -89,7 +110,7 @@ const Projects = ({ children }: ProjectsProps) => {
     getAllProjects();
     getAllTasks();
     getAllTimelogs();
-
+    getAllInvoices();
   }, [])
 
 
@@ -130,7 +151,7 @@ const Projects = ({ children }: ProjectsProps) => {
       });
 
 
-  })
+  }) 
 
   //////////////// ADD INVOICE FUNC 
 
@@ -151,6 +172,7 @@ const Projects = ({ children }: ProjectsProps) => {
     })
       .then(() => {
         console.log('Invoice created successful..');
+        getAllInvoices();
       });
 
   })
@@ -159,7 +181,7 @@ const Projects = ({ children }: ProjectsProps) => {
 
 
   return (
-    <ProjectContext.Provider value={{ projects, tasks, timelogs, DelTask, DelTimelog, DelProject, AddNewInvoice }}>
+    <ProjectContext.Provider value={{ projects, tasks, timelogs, DelTask, DelTimelog, DelProject, AddNewInvoice, invoices }}>
       {children}
     </ProjectContext.Provider>
   );

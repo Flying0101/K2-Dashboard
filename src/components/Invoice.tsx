@@ -6,10 +6,10 @@ import { ProjectContext } from '../contexts/ProjectContext';
 import { useContext } from 'react';
 import { stringify } from 'querystring';
 
-
+import ScrollToBottom from 'react-scroll-to-bottom';
 
 const Invoice: FC = () => {
-
+ 
 
   const context = useContext(ProjectContext)
 
@@ -31,7 +31,7 @@ const Invoice: FC = () => {
   //    "customer_name": "Ryan", 11111111111111111111111111111111
   //    "created_date": "2022-11-16T10:49:33.081Z" } 11111111111111111111111111111111111111111
   //  ]
- 
+
   const createNewInvoice = (e: any) => {
     e.preventDefault();
     console.log(firstName);
@@ -127,10 +127,14 @@ const Invoice: FC = () => {
         </div>
 
         <div className="i-grid-div2" >
-          <h3>All invoices</h3>
+          <h3 className="all-i-h">All invoices</h3>
 
-          <div>
-            <p>invoice: Knatte | status: active | 2022-11-16 | totalsum: 93 459 kr</p>
+          <div className="all-i-con">
+            <ScrollToBottom className="scroll-invoices">
+              {context?.invoices?.map((data) => (
+                <p className="all-invoices">invoice: {data.customer_name} | status: {data.status} | due: {data.due_date} | totalsum: {data.amount} kr</p>
+              ))}
+            </ScrollToBottom>
           </div>
         </div>
 

@@ -105,6 +105,24 @@
       "amount": 1700,
       "created_date": "2022-11-18T17:45:16.755Z",
       "due_date": "2022-12-18T17:45:16.755Z"
+    },
+    {
+      "id": "313fd840",
+      "customer_name": "kex",
+      "project": "bf470e39",
+      "status": "Ej betald",
+      "amount": 0.8333333333333334,
+      "created_date": "2022-11-18T18:08:56.137Z",
+      "due_date": "2022-12-18T18:08:56.137Z"
+    },
+    {
+      "id": "ce415b06",
+      "customer_name": "SHET",
+      "project": "e46a484f",
+      "status": "Ej betald",
+      "amount": 1.9444444444444444,
+      "created_date": "2022-11-18T18:09:33.368Z",
+      "due_date": "2022-12-18T18:09:33.368Z"
     }
   ]
 }
