@@ -4,6 +4,7 @@ import '../css/Invoice.css';
 
 import { ProjectContext } from '../contexts/ProjectContext';
 import { useContext } from 'react';
+import { stringify } from 'querystring';
 
 
 
@@ -30,7 +31,7 @@ const Invoice: FC = () => {
   //    "customer_name": "Ryan", 11111111111111111111111111111111
   //    "created_date": "2022-11-16T10:49:33.081Z" } 11111111111111111111111111111111111111111
   //  ]
-
+ 
   const createNewInvoice = (e: any) => {
     e.preventDefault();
     console.log(firstName);
@@ -57,6 +58,12 @@ const Invoice: FC = () => {
     const total = mt * Number(hourlyRate);
     console.log(total + " " + "kr");
 
+    // customer_name
+    // project 
+    // amount
+    // created time 
+    // due time
+    context?.AddNewInvoice(firstName, invoiceProject, total, createdDate, dueDate);
 
 
   }

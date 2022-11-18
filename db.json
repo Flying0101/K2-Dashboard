@@ -86,5 +86,25 @@
       "date": "16/11/2022",
       "time": "3600:sec"
     }
+  ],
+  "invoices": [
+    {
+      "id": "487848f2",
+      "customer_name": "Steffe",
+      "project": "1203ab90",
+      "status": "Ej betald",
+      "amount": 500,
+      "created_date": "2022-11-18T17:44:25.915Z",
+      "due_date": "2022-12-18T17:44:25.915Z"
+    },
+    {
+      "id": "b01dfbc7",
+      "customer_name": "Vrom",
+      "project": "1c0239f3",
+      "status": "Ej betald",
+      "amount": 1700,
+      "created_date": "2022-11-18T17:45:16.755Z",
+      "due_date": "2022-12-18T17:45:16.755Z"
+    }
   ]
 }

@@ -135,14 +135,19 @@ const Projects = ({ children }: ProjectsProps) => {
   //////////////// ADD INVOICE FUNC 
 
   // add one timelog.
-  const AddNewInvoice = (() => {
+  const AddNewInvoice = ((firstName: string, invoiceProject: string, total: number, createdDate: string, dueDate: string) => {
 
     const unique_id = uuid();
     const id = unique_id.slice(0, 8)
 
     axios.post("http://localhost:3004/invoices", {
-
-
+      id: id,
+      customer_name: firstName,
+      project: invoiceProject,
+      status: 'Ej betald',
+      amount: total,
+      created_date: createdDate,
+      due_date: dueDate
     })
       .then(() => {
         console.log('Invoice created successful..');
