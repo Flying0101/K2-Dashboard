@@ -14,6 +14,7 @@ interface ProjectContextInterface {
   DelTask: any
   DelTimelog: any
   DelProject: any
+  AddNewInvoice: any
 }
 
 interface ProjectsProps {
@@ -131,13 +132,29 @@ const Projects = ({ children }: ProjectsProps) => {
 
   })
 
+  //////////////// ADD INVOICE FUNC 
 
+  // add one timelog.
+  const AddNewInvoice = (() => {
+
+    const unique_id = uuid();
+    const id = unique_id.slice(0, 8)
+
+    axios.post("http://localhost:3004/invoices", {
+
+
+    })
+      .then(() => {
+        console.log('Invoice created successful..');
+      });
+
+  })
 
 
 
 
   return (
-    <ProjectContext.Provider value={{ projects, tasks, timelogs, DelTask, DelTimelog, DelProject }}>
+    <ProjectContext.Provider value={{ projects, tasks, timelogs, DelTask, DelTimelog, DelProject, AddNewInvoice }}>
       {children}
     </ProjectContext.Provider>
   );
