@@ -38,6 +38,7 @@ const Display: FC = () => {
     const convertTime = new Date(`${dateSplit[1]}/${dateSplit[0]}/${dateSplit[2]}`)
     const numTime = convertTime.getTime();
 
+
     if (numTime > date.getTime()) {
       console.log(numTime)
       thirtyday.push(d);
@@ -48,7 +49,32 @@ const Display: FC = () => {
   console.log(thirtyday);
 
   //time end
- 
+
+  // total revenue
+  let oneYearPrior = new Date(new Date().setDate(new Date().getDate() - 365));
+  const totalRevenueList: number[] = [];
+  context?.invoices?.forEach((invoice) => {
+
+    const dateSplit = invoice.created_date.split("T")
+    const turnDate = dateSplit[0];
+    const newFormat = turnDate.split("-");
+    const finalFormat = new Date(`${newFormat[1]}/${newFormat[2]}/${newFormat[0]}`)
+    const finalToNum = finalFormat.getTime();
+
+    if (finalToNum > oneYearPrior.getTime()) {
+      console.log(finalToNum)
+      totalRevenueList.push(invoice.amount);
+    } else {
+      console.log("it didnt work");
+    }
+  })
+
+  // total amount of invoice cash amount within one year time from todays date.
+  const currRevenue = totalRevenueList.reduce((a, b) => a + b, 0);
+  //end of revenue logic
+
+
+
 
 
   // delete one specific task.
@@ -65,13 +91,13 @@ const Display: FC = () => {
   const DeleteOneProject = (id: string) => {
     context?.DelProject(id);
 
-  }
+  } 
 
   return (
     <section className="display-section">
 
       <div className="revenue-display">
-        <p className="revenue-h">TOTAL REVENUE:  1 323 342 kr</p>
+        <p className="revenue-h"><span className="h-green">TOTAL REVENUE:</span>  {currRevenue.toFixed(2)} kr / year to date</p>
       </div>
 
       <div className="display-grid">

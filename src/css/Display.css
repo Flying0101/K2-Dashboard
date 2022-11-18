@@ -18,7 +18,7 @@
     margin: 0 auto;
     font-size: 1.5rem;
     box-shadow: 0 0 3px #ccc;
-
+    color: lime;
 
 }
 
@@ -64,13 +64,17 @@
 }
 
 
-.d-g-icon{ 
+.d-g-icon {
     color: red;
     margin-top: 3px;
     margin-left: 5px;
-    
+
 }
 
+.h-green {
+    color: rgba(0, 255, 213, 0.671);
+    font-weight: bold;
+}
 
 @media (max-width: 800px) {
 

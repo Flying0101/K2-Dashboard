@@ -112,8 +112,8 @@
       "project": "bf470e39",
       "status": "Ej betald",
       "amount": 0.8333333333333334,
-      "created_date": "2022-11-18T18:08:56.137Z",
-      "due_date": "2022-12-18T18:08:56.137Z"
+      "created_date": "2020-11-18T18:08:56.137Z",
+      "due_date": "2020-12-18T18:08:56.137Z"
     },
     {
       "id": "ce415b06",
@@ -123,6 +123,24 @@
       "amount": 1.9444444444444444,
       "created_date": "2022-11-18T18:09:33.368Z",
       "due_date": "2022-12-18T18:09:33.368Z"
+    },
+    {
+      "id": "280c448b",
+      "customer_name": "WHOOSH",
+      "project": "1c0239f3",
+      "status": "Ej betald",
+      "amount": 789,
+      "created_date": "2022-11-18T22:26:33.013Z",
+      "due_date": "2022-12-18T22:26:33.021Z"
+    },
+    {
+      "id": "453174b3",
+      "customer_name": "testing",
+      "project": "bf470e39",
+      "status": "Ej betald",
+      "amount": 3000,
+      "created_date": "2022-11-18T23:08:32.211Z",
+      "due_date": "2022-12-18T23:08:32.211Z"
     }
   ]
 }
