@@ -51,12 +51,6 @@
       "color": "#00FF00\t",
       "projid": "1c0239f3",
       "id": "aec2e093"
-    },
-    {
-      "title": "SHESH",
-      "color": "#00FFFF",
-      "projid": "e46a484f",
-      "id": "e0eb3fb8"
     }
   ],
   "timelogs": [
@@ -66,7 +60,7 @@
       "title": "GT3RS",
       "color": "#00FF00\t",
       "date": "16/09/2022",
-      "time": "3:sec" 
+      "time": "3:sec"
     },
     {
       "id": "00e8c49f",

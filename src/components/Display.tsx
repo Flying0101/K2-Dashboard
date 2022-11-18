@@ -48,7 +48,7 @@ const Display: FC = () => {
   console.log(thirtyday);
 
   //time end
-
+ 
 
 
   // delete one specific task.
@@ -62,6 +62,10 @@ const Display: FC = () => {
     context?.DelTimelog(id);
   }
 
+  const DeleteOneProject = (id: string) => {
+    context?.DelProject(id);
+
+  }
 
   return (
     <section className="display-section">
@@ -77,7 +81,7 @@ const Display: FC = () => {
           <div className="d-g-sc">
             <ScrollToBottom className="scroll-area">
               {context?.projects?.map((pro) => (
-                <p className="d-g-sd">Project: {pro.name} | x active tasks <FaRegTimesCircle className="d-g-icon" /></p>
+                <p className="d-g-sd">Project: {pro.name} | x active tasks <FaRegTimesCircle className="d-g-icon" onClick={() => DeleteOneProject(pro.id)} /></p>
 
               ))}
 

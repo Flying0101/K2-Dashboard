@@ -13,6 +13,7 @@ interface ProjectContextInterface {
   timelogs: any[]
   DelTask: any
   DelTimelog: any
+  DelProject: any
 }
 
 interface ProjectsProps {
@@ -115,8 +116,28 @@ const Projects = ({ children }: ProjectsProps) => {
     getAllTimelogs();
   })
 
+
+  // delete project and connected task function.
+  const DelProject = ((id: string) => {
+
+    axios.delete(`http://localhost:3004/projects/${id}`)
+      .then(() => {
+
+        console.log('DELETE project successful..');
+
+        getAllProjects();
+      });
+
+
+  })
+
+
+
+
+
+
   return (
-    <ProjectContext.Provider value={{ projects, tasks, timelogs, DelTask, DelTimelog }}>
+    <ProjectContext.Provider value={{ projects, tasks, timelogs, DelTask, DelTimelog, DelProject }}>
       {children}
     </ProjectContext.Provider>
   );
