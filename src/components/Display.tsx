@@ -74,6 +74,33 @@ const Display: FC = () => {
   //end of revenue logic
 
 
+  // get all task from spec project logic
+  let tasksProjects: any = [];
+
+  context?.projects.forEach((project) => {
+
+    const protaskens = context?.tasks.filter((t) => t.projid === project.id);
+
+    const bajs = project;
+    const she = protaskens;
+    she.forEach((er) => {
+      tasksProjects.push(er)
+    })
+    tasksProjects.push(project)
+
+  })
+  console.log(tasksProjects);
+  ////
+  const grpPro: any = [];
+
+  context?.projects.forEach((project) => {
+
+    const protaskens = tasksProjects.filter((t: any) => t.color === project.color);
+    grpPro.push(protaskens);
+  })
+  console.log(grpPro);
+
+  // end of all task from project logic
 
 
 
@@ -91,7 +118,7 @@ const Display: FC = () => {
   const DeleteOneProject = (id: string) => {
     context?.DelProject(id);
 
-  } 
+  }
 
   return (
     <section className="display-section">
@@ -106,8 +133,8 @@ const Display: FC = () => {
           <p className="d-g-h">Current Projects</p>
           <div className="d-g-sc">
             <ScrollToBottom className="scroll-area">
-              {context?.projects?.map((pro) => (
-                <p className="d-g-sd">Project: {pro.name} | x active tasks <FaRegTimesCircle className="d-g-icon" onClick={() => DeleteOneProject(pro.id)} /></p>
+              {grpPro.map((pro: any) => (
+                <p className="d-g-sd">Project: {pro.name} | {pro.length - 1} active tasks <FaRegTimesCircle className="d-g-icon" onClick={() => DeleteOneProject(pro.id)} /></p>
 
               ))}
 
@@ -122,6 +149,8 @@ const Display: FC = () => {
           <div className="d-g-sc">
             <ScrollToBottom className="scroll-area">
               {context?.tasks?.map((task) => (
+
+
                 <p className="d-g-sd">Task: {task.title} |<FaRegTimesCircle className="d-g-icon" onClick={() => DeleteOneTask(task.id)} /></p>
 
               ))}
