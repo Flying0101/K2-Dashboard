@@ -81,9 +81,8 @@ const Display: FC = () => {
 
     const protaskens = context?.tasks.filter((t) => t.projid === project.id);
 
-    const bajs = project;
-    const she = protaskens;
-    she.forEach((er) => {
+    const getAll = protaskens;
+    getAll.forEach((er) => {
       tasksProjects.push(er)
     })
     tasksProjects.push(project)
@@ -101,7 +100,7 @@ const Display: FC = () => {
   console.log(grpPro);
 
   // end of all task from project logic
-
+ 
 
 
   // delete one specific task.
@@ -134,7 +133,7 @@ const Display: FC = () => {
           <div className="d-g-sc">
             <ScrollToBottom className="scroll-area">
               {grpPro.map((pro: any) => (
-                <p className="d-g-sd">Project: {pro.name} | {pro.length - 1} active tasks <FaRegTimesCircle className="d-g-icon" onClick={() => DeleteOneProject(pro.id)} /></p>
+                <p className="d-g-sd">Project: {pro[pro.length - 1].name} | {pro.length - 1} active tasks <FaRegTimesCircle className="d-g-icon" onClick={() => DeleteOneProject(pro.id)} /></p>
 
               ))}
 
