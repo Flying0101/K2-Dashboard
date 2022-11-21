@@ -12,7 +12,7 @@ const App: FC = () => {
   return (
     <div className="App">
       <Projects>
-        <Nav /> 
+        <Nav />
         <Display />
         <Invoice />
       </Projects>

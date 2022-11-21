@@ -9,21 +9,26 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 
 const Invoice: FC = () => {
 
-
-
+  // import context.
   const context = useContext(ProjectContext);
 
+  //state for saving firstname input.
   const [firstName, setFirstName] = useState<string>('');
 
+  //state for saving project selection.
   const [invoiceProject, setInvoiceProject] = useState<string>();
 
+  //state for saving hourly rate from input.
   const [hourlyRate, setHourlyRate] = useState<string>();
 
+  //state for saving onChange task time to use in createSelectTaskList function.
   const [workHours, setWorkHours] = useState<string>();
 
+  //state for saving selected tasks from invoice into an array.
   const [selectedTasks, setSelectedTasks] = useState<string[]>([]);
 
 
+  // create new invoice function.
   const createNewInvoice = (e: any) => {
     e.preventDefault();
     console.log(firstName);
@@ -36,28 +41,16 @@ const Invoice: FC = () => {
     console.log(createdDate);
     console.log(dueDate);
 
-    //only seconds // use reduce to get total sum of selected task time array.
-    //const secondsSplit = workHours?.split(":")
-    //const onlySeconds = secondsSplit?.[0];
-    //console.log(onlySeconds);
-
-    //  const toIntSec: number = Number(onlySeconds);
-    //    console.log(toIntSec);
-    // 
     const toIntSec = toIntTaskTime.reduce((a, b) => a + b, 0);
 
-    const lol = toIntSec / 60;
-    const mt = lol / 60;
-    const total = mt * Number(hourlyRate);
+    const taskSeconds = toIntSec / 60;
+    const taskHourSeconds = taskSeconds / 60;
+    const total = taskHourSeconds * Number(hourlyRate);
     console.log(total + " " + "kr");
 
-    // customer_name
-    // project 
-    // amount
-    // created time 
-    // due time
     context?.AddNewInvoice(firstName, invoiceProject as string, total, createdDate, dueDate);
 
+    //empty/clear arrays for task selection/tasktime.
     toIntTaskTime.splice(0);
     setSelectedTasks([]);
   }
@@ -71,10 +64,7 @@ const Invoice: FC = () => {
 
   const handleWorkHours = (event: React.ChangeEvent<HTMLSelectElement>) => {
 
-
     setWorkHours(event.target.value);
-
-
   }
 
 
@@ -89,7 +79,7 @@ const Invoice: FC = () => {
 
 
 
-  // create selected task time array to number.
+  // convert selected task time array to number.
   let toIntTaskTime = selectedTasks.map(i => Number(i));
 
   const createSelectTaskList = (e: any) => {

@@ -4,7 +4,7 @@ export interface ProjectsInterface {
     name: string,
     color: string,
     id: string,
-    projid: string, 
+    projid: string,
     title: string
 }
 
@@ -46,12 +46,24 @@ export interface InvoicesInterface {
     due_date: string
 }
 
-export interface TaskProjectInterface{ 
-    color: string, 
-    id: string, 
-    projid: string, 
-    title: string, 
+export interface TaskProjectInterface {
+    color: string,
+    id: string,
+    projid: string,
+    title: string,
     name: string
+
+}
+
+
+
+export interface grpProInterface {
+    color: string,
+    date: string,
+    id: string,
+    taskid: string,
+    time: string,
+    title: string
 
 }
 

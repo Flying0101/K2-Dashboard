@@ -20,7 +20,7 @@ interface ProjectContextInterface {
 }
 
 
-
+ 
 interface ProjectsProps {
   children: React.ReactNode;
 }
@@ -31,7 +31,6 @@ export const ProjectContext = createContext<ProjectContextInterface | null>(null
 const Projects = ({ children }: ProjectsProps) => {
 
   // useState for getting projects, tasks and timelogs. 
-
   const [projects, setProjects] = useState<ProjectsInterface[]>([]);
 
   const [tasks, setTasks] = useState<TasksInterface[]>([]);
@@ -156,8 +155,9 @@ const Projects = ({ children }: ProjectsProps) => {
 
   })
 
-  //////////////// ADD INVOICE FUNC 
 
+
+  //////////////// ADD INVOICE FUNC 
   // add one timelog.
   const AddNewInvoice = ((firstName: string, invoiceProject: string, total: number, createdDate: string, dueDate: string) => {
 

@@ -9,7 +9,7 @@
       "name": "BUGATTI",
       "color": "#FFA500",
       "id": "bf470e39"
-    },
+    }, 
     {
       "name": "Porsche",
       "color": "#00FF00\t",
@@ -21,7 +21,7 @@
       "id": "e46a484f"
     }
   ],
-  "tasks": [ 
+  "tasks": [
     {
       "title": "Aventador",
       "color": "#FF0000",
@@ -105,87 +105,6 @@
       "amount": 1700,
       "created_date": "2022-11-18T17:45:16.755Z",
       "due_date": "2022-12-18T17:45:16.755Z"
-    },
-    {
-      "id": "4baaad46",
-      "customer_name": "TESTING",
-      "project": "bf470e39",
-      "status": "Ej betald",
-      "amount": 4500,
-      "created_date": "2022-11-21T19:32:57.294Z",
-      "due_date": "2022-12-21T19:32:57.294Z"
-    },
-    {
-      "id": "92196823",
-      "customer_name": "loooool",
-      "project": "1203ab90",
-      "status": "Ej betald",
-      "amount": 400,
-      "created_date": "2022-11-21T19:34:01.510Z",
-      "due_date": "2022-12-21T19:34:01.510Z"
-    },
-    {
-      "id": "bf9171bc",
-      "customer_name": "testing",
-      "project": "1203ab90",
-      "status": "Ej betald",
-      "amount": 1500,
-      "created_date": "2022-11-21T19:34:33.812Z",
-      "due_date": "2022-12-21T19:34:33.812Z"
-    },
-    {
-      "id": "735f1b13",
-      "customer_name": "NOICE",
-      "project": "e46a484f",
-      "status": "Ej betald",
-      "amount": 400,
-      "created_date": "2022-11-21T19:38:25.111Z",
-      "due_date": "2022-12-21T19:38:25.111Z"
-    },
-    {
-      "id": "6da1e6f5",
-      "customer_name": "NOICE",
-      "project": "e46a484f",
-      "status": "Ej betald",
-      "amount": 500,
-      "created_date": "2022-11-21T19:38:44.508Z",
-      "due_date": "2022-12-21T19:38:44.508Z"
-    },
-    {
-      "id": "503163b7",
-      "customer_name": "qwe",
-      "project": "1c0239f3",
-      "status": "Ej betald",
-      "amount": 500,
-      "created_date": "2022-11-21T19:40:06.385Z",
-      "due_date": "2022-12-21T19:40:06.385Z"
-    },
-    {
-      "id": "c4ef876c",
-      "customer_name": "LOLTEST",
-      "project": "bf470e39",
-      "status": "Ej betald",
-      "amount": 4000,
-      "created_date": "2022-11-21T21:52:27.901Z",
-      "due_date": "2022-12-21T21:52:27.901Z"
-    },
-    {
-      "id": "b4f39c42",
-      "customer_name": "trythis",
-      "project": "bf470e39",
-      "status": "Ej betald",
-      "amount": 34000,
-      "created_date": "2022-11-21T22:00:28.720Z",
-      "due_date": "2022-12-21T22:00:28.720Z"
-    },
-    {
-      "id": "3bd90bcf",
-      "customer_name": "testing",
-      "project": "bf470e39",
-      "status": "Ej betald",
-      "amount": 15000,
-      "created_date": "2022-11-21T22:15:33.237Z",
-      "due_date": "2022-12-21T22:15:33.237Z"
     }
   ]
 }

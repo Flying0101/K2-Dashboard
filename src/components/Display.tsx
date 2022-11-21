@@ -9,7 +9,7 @@ import { FaRegTimesCircle } from "react-icons/fa";
 import { ProjectContext } from '../contexts/ProjectContext';
 import { useContext } from 'react';
 
-import { TaskProjectInterface } from '../interfaces/interface';
+import { TaskProjectInterface, TimelogsInterface } from '../interfaces/interface';
 
 
 const Display: FC = () => {
@@ -41,8 +41,8 @@ const Display: FC = () => {
   const thirtyday: TimelogType[] = [];
 
   context?.timelogs?.forEach((d) => {
-    const hej = d.date;
-    const dateSplit = hej.split("/")
+    const timeDate = d.date;
+    const dateSplit = timeDate.split("/")
     const convertTime = new Date(`${dateSplit[1]}/${dateSplit[0]}/${dateSplit[2]}`)
     const numTime = convertTime.getTime();
 
@@ -116,8 +116,8 @@ const Display: FC = () => {
     context?.DelTask(id);
   }
 
- 
-  //delete on timelog
+
+  //delete one timelog
   const DeleteOneTimelog = (id: string) => {
     context?.DelTimelog(id);
   }
@@ -171,7 +171,7 @@ const Display: FC = () => {
           <p className="d-g-h">Timelogs last 30days</p>
           <div className="d-g-sc">
             <ScrollToBottom className="scroll-area">
-              {thirtyday.map((timel: any) => (
+              {thirtyday.map((timel: TimelogType) => (
                 <p className="d-g-sd">Timelog: {timel.title} | {timel.time} | {timel.date} <FaRegTimesCircle className="d-g-icon" onClick={() => DeleteOneTimelog(timel.id)} /></p>
               ))}
             </ScrollToBottom>
@@ -183,7 +183,7 @@ const Display: FC = () => {
           <p className="d-g-h">All timelogs</p>
           <div className="d-g-sc">
             <ScrollToBottom className="scroll-area">
-              {context?.timelogs?.map((timel: any) => (
+              {context?.timelogs?.map((timel: TimelogsInterface) => (
                 <p className="d-g-sd">Timelog: {timel.title} | {timel.time} | {timel.date} <FaRegTimesCircle className="d-g-icon" onClick={() => DeleteOneTimelog(timel.id)} /></p>
               ))}
             </ScrollToBottom>
