@@ -4,19 +4,22 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { v4 as uuid } from 'uuid';
 
-import App from '../App';
+
+import { InvoicesInterface, TimelogsInterface, TasksInterface, ProjectsInterface } from '../interfaces/interface';
 
 
 interface ProjectContextInterface {
-  projects: any[]
-  tasks: any[]
-  timelogs: any[]
-  DelTask: any
-  DelTimelog: any
-  DelProject: any
-  AddNewInvoice: any
-  invoices: any[]
+  projects: ProjectsInterface[]
+  tasks: TasksInterface[]
+  timelogs: TimelogsInterface[]
+  DelTask: (id: string) => void
+  DelTimelog: (id: string) => void
+  DelProject: (id: string) => void
+  AddNewInvoice: (firstName: string, invoiceProject: string, total: number, createdDate: string, dueDate: string) => void
+  invoices: InvoicesInterface[]
 }
+
+
 
 interface ProjectsProps {
   children: React.ReactNode;
@@ -28,14 +31,14 @@ export const ProjectContext = createContext<ProjectContextInterface | null>(null
 const Projects = ({ children }: ProjectsProps) => {
 
   // useState for getting projects, tasks and timelogs. 
-  const [projects, setProjects] = useState<{ name: string; color: string; id: string; }[]>([]);
 
-  const [tasks, setTasks] = useState<{ title: string; color: string; projid: string; id: string; }[]>([]);
+  const [projects, setProjects] = useState<ProjectsInterface[]>([]);
 
-  const [timelogs, setTimelogs] = useState<{ id: string; taskid: string; title: string; date: string; time: string; }[]>([]);
+  const [tasks, setTasks] = useState<TasksInterface[]>([]);
 
+  const [timelogs, setTimelogs] = useState<TimelogsInterface[]>([]);
 
-  const [invoices, setInvoices] = useState<{ id: string, customer_name: string, project: string, status: string, amount: number, created_date: string, due_Date: string }[]>([]);
+  const [invoices, setInvoices] = useState<InvoicesInterface[]>([]);
 
 
   //get the projects
@@ -115,7 +118,7 @@ const Projects = ({ children }: ProjectsProps) => {
 
 
   //Delete one task from db.json.
-  const DelTask = ((id: any) => {
+  const DelTask = ((id: string) => {
     axios.delete(`http://localhost:3004/tasks/${id}`)
       .then(() => {
         getAllTasks();
@@ -151,7 +154,7 @@ const Projects = ({ children }: ProjectsProps) => {
       });
 
 
-  }) 
+  })
 
   //////////////// ADD INVOICE FUNC 
 

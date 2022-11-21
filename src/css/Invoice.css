@@ -103,6 +103,12 @@
     height: 350px;
 }
 
+.select-task-btn{
+    color: lime;
+    background: rgb(104, 104, 104); 
+    padding: 2px;
+    border: 1px solid white;
+}
 
 @media (max-width: 800px) {
 

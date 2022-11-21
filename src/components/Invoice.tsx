@@ -1,17 +1,17 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 
 import '../css/Invoice.css';
 
 import { ProjectContext } from '../contexts/ProjectContext';
 import { useContext } from 'react';
-import { stringify } from 'querystring';
 
 import ScrollToBottom from 'react-scroll-to-bottom';
 
 const Invoice: FC = () => {
- 
 
-  const context = useContext(ProjectContext)
+
+
+  const context = useContext(ProjectContext);
 
   const [firstName, setFirstName] = useState<string>('');
 
@@ -21,22 +21,13 @@ const Invoice: FC = () => {
 
   const [workHours, setWorkHours] = useState<string>();
 
+  const [selectedTasks, setSelectedTasks] = useState<string[]>([]);
 
-  // "invoices": [
-  //   { "id": "<random id>", 22222222222222222222222222222222222222222
-  //  "status": "ej betald",  22222222222222222222222222222222222
-  //   "due_date": "2022-12-15T10:49:33.081Z", 1111111111111111111111111111111
-  //   "amount": 9001,  1111111111111111111111111111111111111111111111111111111111111
-  //   "project": "<project id>", 1111111111111111111111111111111111
-  //    "customer_name": "Ryan", 11111111111111111111111111111111
-  //    "created_date": "2022-11-16T10:49:33.081Z" } 11111111111111111111111111111111111111111
-  //  ]
 
   const createNewInvoice = (e: any) => {
     e.preventDefault();
     console.log(firstName);
     console.log(invoiceProject);
-    console.log(workHours);
     console.log(hourlyRate);
 
     // create time and due time.
@@ -45,13 +36,15 @@ const Invoice: FC = () => {
     console.log(createdDate);
     console.log(dueDate);
 
-    //only seconds
-    const secondsSplit = workHours?.split(":")
-    const onlySeconds = secondsSplit?.[0];
-    console.log(onlySeconds);
+    //only seconds // use reduce to get total sum of selected task time array.
+    //const secondsSplit = workHours?.split(":")
+    //const onlySeconds = secondsSplit?.[0];
+    //console.log(onlySeconds);
 
-    const toIntSec: number = Number(onlySeconds);
-    console.log(toIntSec);
+    //  const toIntSec: number = Number(onlySeconds);
+    //    console.log(toIntSec);
+    // 
+    const toIntSec = toIntTaskTime.reduce((a, b) => a + b, 0);
 
     const lol = toIntSec / 60;
     const mt = lol / 60;
@@ -63,20 +56,28 @@ const Invoice: FC = () => {
     // amount
     // created time 
     // due time
-    context?.AddNewInvoice(firstName, invoiceProject, total, createdDate, dueDate);
+    context?.AddNewInvoice(firstName, invoiceProject as string, total, createdDate, dueDate);
 
-
+    toIntTaskTime.splice(0);
+    setSelectedTasks([]);
   }
-
 
 
   const handleFirstName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFirstName(event.target.value);
   }
 
+
+
   const handleWorkHours = (event: React.ChangeEvent<HTMLSelectElement>) => {
+
+
     setWorkHours(event.target.value);
+
+
   }
+
+
   const handleHourlyRate = (event: React.ChangeEvent<HTMLInputElement>) => {
     setHourlyRate(event.target.value);
   }
@@ -85,6 +86,37 @@ const Invoice: FC = () => {
     setInvoiceProject(event.target.value);
   }
 
+
+
+
+  // create selected task time array to number.
+  let toIntTaskTime = selectedTasks.map(i => Number(i));
+
+  const createSelectTaskList = (e: any) => {
+    e.preventDefault();
+
+    const taskFromSelect = workHours;
+    const taskTimeSplit = taskFromSelect?.split(":");
+    const onlyTaskTime = taskTimeSplit?.[0];
+
+    if (onlyTaskTime !== undefined) {
+      setSelectedTasks((e) => [...e, onlyTaskTime]);
+    }
+
+    alert(`One task added!`);
+    console.log(toIntTaskTime);
+
+  }
+
+  // use this to check array values when change.
+  useEffect(() => {
+
+    console.log(selectedTasks);
+    console.log(toIntTaskTime);
+  }, [selectedTasks])
+
+
+  // end of selected task time logic
 
 
   return (
@@ -103,19 +135,29 @@ const Invoice: FC = () => {
             <br />
             <p className="i-form-question">Choose project:</p>
             <select className="i-selects" onChange={handleInvoiceProject}>
-              <option className="i-sel-options">----</option>
+              <option className="i-sel-options" id="selectedTask">----</option>
               {context?.projects?.map((data) => (
                 <option className="i-sel-options" value={data.id}>{data.name}</option>
               ))}
             </select>
             <br />
             <p className="i-form-question">Apply completed tasks</p>
+
+
+
+
             <select className="i-selects" onChange={handleWorkHours}>
               <option className="i-sel-options">----</option>
               {context?.timelogs?.map((data) => (
                 <option className="i-sel-options" value={data.time}>{data.title} | {data.time}</option>
               ))}
             </select>
+            <button className="select-task-btn" onClick={(e) => createSelectTaskList(e)}>ADD TASK</button>
+
+
+
+
+
             <br />
             <br />
             <p className="i-form-question">Hourly Rate</p>

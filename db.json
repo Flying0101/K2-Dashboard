@@ -107,40 +107,85 @@
       "due_date": "2022-12-18T17:45:16.755Z"
     },
     {
-      "id": "313fd840",
-      "customer_name": "kex",
+      "id": "4baaad46",
+      "customer_name": "TESTING",
       "project": "bf470e39",
       "status": "Ej betald",
-      "amount": 0.8333333333333334,
-      "created_date": "2020-11-18T18:08:56.137Z",
-      "due_date": "2020-12-18T18:08:56.137Z"
+      "amount": 4500,
+      "created_date": "2022-11-21T19:32:57.294Z",
+      "due_date": "2022-12-21T19:32:57.294Z"
     },
     {
-      "id": "ce415b06",
-      "customer_name": "SHET",
+      "id": "92196823",
+      "customer_name": "loooool",
+      "project": "1203ab90",
+      "status": "Ej betald",
+      "amount": 400,
+      "created_date": "2022-11-21T19:34:01.510Z",
+      "due_date": "2022-12-21T19:34:01.510Z"
+    },
+    {
+      "id": "bf9171bc",
+      "customer_name": "testing",
+      "project": "1203ab90",
+      "status": "Ej betald",
+      "amount": 1500,
+      "created_date": "2022-11-21T19:34:33.812Z",
+      "due_date": "2022-12-21T19:34:33.812Z"
+    },
+    {
+      "id": "735f1b13",
+      "customer_name": "NOICE",
       "project": "e46a484f",
       "status": "Ej betald",
-      "amount": 1.9444444444444444,
-      "created_date": "2022-11-18T18:09:33.368Z",
-      "due_date": "2022-12-18T18:09:33.368Z"
+      "amount": 400,
+      "created_date": "2022-11-21T19:38:25.111Z",
+      "due_date": "2022-12-21T19:38:25.111Z"
     },
     {
-      "id": "280c448b",
-      "customer_name": "WHOOSH",
+      "id": "6da1e6f5",
+      "customer_name": "NOICE",
+      "project": "e46a484f",
+      "status": "Ej betald",
+      "amount": 500,
+      "created_date": "2022-11-21T19:38:44.508Z",
+      "due_date": "2022-12-21T19:38:44.508Z"
+    },
+    {
+      "id": "503163b7",
+      "customer_name": "qwe",
       "project": "1c0239f3",
       "status": "Ej betald",
-      "amount": 789,
-      "created_date": "2022-11-18T22:26:33.013Z",
-      "due_date": "2022-12-18T22:26:33.021Z"
+      "amount": 500,
+      "created_date": "2022-11-21T19:40:06.385Z",
+      "due_date": "2022-12-21T19:40:06.385Z"
     },
     {
-      "id": "453174b3",
+      "id": "c4ef876c",
+      "customer_name": "LOLTEST",
+      "project": "bf470e39",
+      "status": "Ej betald",
+      "amount": 4000,
+      "created_date": "2022-11-21T21:52:27.901Z",
+      "due_date": "2022-12-21T21:52:27.901Z"
+    },
+    {
+      "id": "b4f39c42",
+      "customer_name": "trythis",
+      "project": "bf470e39",
+      "status": "Ej betald",
+      "amount": 34000,
+      "created_date": "2022-11-21T22:00:28.720Z",
+      "due_date": "2022-12-21T22:00:28.720Z"
+    },
+    {
+      "id": "3bd90bcf",
       "customer_name": "testing",
       "project": "bf470e39",
       "status": "Ej betald",
-      "amount": 3000,
-      "created_date": "2022-11-18T23:08:32.211Z",
-      "due_date": "2022-12-18T23:08:32.211Z"
+      "amount": 15000,
+      "created_date": "2022-11-21T22:15:33.237Z",
+      "due_date": "2022-12-21T22:15:33.237Z"
     }
   ]
 }

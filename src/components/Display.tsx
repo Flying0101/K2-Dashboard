@@ -9,10 +9,10 @@ import { FaRegTimesCircle } from "react-icons/fa";
 import { ProjectContext } from '../contexts/ProjectContext';
 import { useContext } from 'react';
 
+import { TaskProjectInterface } from '../interfaces/interface';
 
 
 const Display: FC = () => {
-
 
 
   const context = useContext(ProjectContext)
@@ -30,7 +30,15 @@ const Display: FC = () => {
   console.log(date.getTime());
   console.log(today.getTime());
 
-  const thirtyday: any = [];
+  interface TimelogType {
+    color: string
+    date: string
+    id: string
+    taskid: string
+    time: string
+    title: string
+  }
+  const thirtyday: TimelogType[] = [];
 
   context?.timelogs?.forEach((d) => {
     const hej = d.date;
@@ -75,7 +83,7 @@ const Display: FC = () => {
 
 
   // get all task from spec project logic
-  let tasksProjects: any = [];
+  let tasksProjects: TaskProjectInterface[] = [];
 
   context?.projects.forEach((project) => {
 
@@ -100,7 +108,7 @@ const Display: FC = () => {
   console.log(grpPro);
 
   // end of all task from project logic
- 
+
 
 
   // delete one specific task.
@@ -108,7 +116,7 @@ const Display: FC = () => {
     context?.DelTask(id);
   }
 
-
+ 
   //delete on timelog
   const DeleteOneTimelog = (id: string) => {
     context?.DelTimelog(id);
@@ -133,7 +141,7 @@ const Display: FC = () => {
           <div className="d-g-sc">
             <ScrollToBottom className="scroll-area">
               {grpPro.map((pro: any) => (
-                <p className="d-g-sd">Project: {pro[pro.length - 1].name} | {pro.length - 1} active tasks <FaRegTimesCircle className="d-g-icon" onClick={() => DeleteOneProject(pro.id)} /></p>
+                <p className="d-g-sd">Project: {pro[pro.length - 1].name} | {pro.length - 1} active tasks <FaRegTimesCircle className="d-g-icon" onClick={() => DeleteOneProject(pro[pro.length - 1].id)} /></p>
 
               ))}
 
