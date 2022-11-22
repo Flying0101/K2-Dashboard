@@ -20,7 +20,7 @@ interface ProjectContextInterface {
 }
 
 
- 
+
 interface ProjectsProps {
   children: React.ReactNode;
 }

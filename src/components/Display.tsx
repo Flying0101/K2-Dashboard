@@ -14,7 +14,7 @@ import { TaskProjectInterface, TimelogsInterface } from '../interfaces/interface
 
 const Display: FC = () => {
 
-
+  // import context
   const context = useContext(ProjectContext)
 
 
@@ -24,7 +24,7 @@ const Display: FC = () => {
     console.log("context is null!")
   }
 
-  // time start
+  // time start logic
   let date = new Date(new Date().setDate(new Date().getDate() - 30));
   let today = new Date();
   console.log(date.getTime());
@@ -58,7 +58,7 @@ const Display: FC = () => {
 
   //time end
 
-  // total revenue
+  // total revenue logic
   let oneYearPrior = new Date(new Date().setDate(new Date().getDate() - 365));
   const totalRevenueList: number[] = [];
   context?.invoices?.forEach((invoice) => {
@@ -77,7 +77,7 @@ const Display: FC = () => {
     }
   })
 
-  // total amount of invoice cash amount within one year time from todays date.
+  // total amount of invoice cash within one year time from todays date/YEARTODATE.
   const currRevenue = totalRevenueList.reduce((a, b) => a + b, 0);
   //end of revenue logic
 

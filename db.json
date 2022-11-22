@@ -9,12 +9,12 @@
       "name": "BUGATTI",
       "color": "#FFA500",
       "id": "bf470e39"
-    }, 
+    },
     {
       "name": "Porsche",
       "color": "#00FF00\t",
       "id": "1c0239f3"
-    },
+    }, 
     {
       "name": "Bentley",
       "color": "#00FFFF",
@@ -105,6 +105,15 @@
       "amount": 1700,
       "created_date": "2022-11-18T17:45:16.755Z",
       "due_date": "2022-12-18T17:45:16.755Z"
+    },
+    {
+      "id": "a2d64c61",
+      "customer_name": "TESTING",
+      "project": "1203ab90",
+      "status": "Ej betald",
+      "amount": 10000,
+      "created_date": "2020-11-22T08:26:02.953Z",
+      "due_date": "2022-12-22T08:26:02.960Z"
     }
   ]
 }
